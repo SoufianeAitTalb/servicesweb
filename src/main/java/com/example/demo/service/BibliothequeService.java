@@ -3,14 +3,19 @@ package com.example.demo.service;
 import com.example.demo.dto.BibliothequeDto;
 import com.example.demo.dto.LivreDto;
 import com.example.demo.exception.NotFoundException;
+import com.example.demo.repository.BibliothequeRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+@RequiredArgsConstructor
 @Service
 public class BibliothequeService {
+
+    private final BibliothequeRepository bibliothequeRepository;
 
     // new ArrayList<>(...) because List.of(...) is immutable
     private final List<BibliothequeDto> bibliotheques = new ArrayList<>(List.of(
