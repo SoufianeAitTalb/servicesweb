@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Secrets (clés S3) ###
+.env
+
+### Base H2 locale ###
+cours.*.db

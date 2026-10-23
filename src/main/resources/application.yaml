@@ -2,6 +2,10 @@ spring:
   application:
     name: demo
 
+  # Charge les clés S3 du fichier .env (non versionné) s'il existe
+  config:
+    import: optional:file:.env[.properties]
+
   datasource:
     url: jdbc:h2:./cours;AUTO_SERVER=TRUE
     driver-class-name: org.h2.Driver
@@ -18,3 +22,9 @@ spring:
   h2:
     console:
       enabled: true
+
+  # Taille max des fichiers envoyés au backend (1MB par défaut, trop petit pour une image)
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB

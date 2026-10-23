@@ -3,9 +3,8 @@ package com.example.demo.controller;
 import com.example.demo.dto.BibliothequeDto;
 import com.example.demo.dto.LivreDto;
 import com.example.demo.service.BibliothequeService;
-import com.example.demo.service.LivreService;
+import com.example.demo.service.BookService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -16,7 +15,7 @@ import java.util.List;
 public class BibliothequeController {
 
     private final BibliothequeService bibliothequeService;
-    private final LivreService livreService;
+    private final BookService bookService;
 
 
 
@@ -36,10 +35,6 @@ public class BibliothequeController {
     @GetMapping("/bibliotheques/{id}/livres")
     public List<LivreDto> getLivres(@PathVariable(name = "id") String id,
                                     @RequestParam(name = "isbn", required = false) List<String> isbns) {
-        return livreService.getLivres(id, isbns);
+        return bookService.getLivres(id, isbns);
     }
-
-
-
-
 }
